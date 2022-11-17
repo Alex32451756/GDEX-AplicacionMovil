@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="subtitulo">
+      Configuración de proveedores
+    </ion-title>
+    <ion-buttons slot="start" >
+      <ion-button (click)="openMenu()">
+        <ion-icon color=primary slot="icon-only" name="menu-sharp"></ion-icon> 
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="nuevo">
+    <ion-button (click)="nuevoPro()" class="normal" color="dark">nuevo</ion-button>
+  </div>
+
+  <div *ngIf="enableNewProducto">
+
+    <ion-item>
+      <ion-buttons slot="end">
+        <ion-button (click)="enableNewProducto = false;" > 
+          <ion-icon slot="icon-only" name="close" ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+      <h3 class="subtitulo encabezado"> Ingrese datos del producto</h3>
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Nombre:
+      </ion-label>
+      <ion-input [(ngModel)]="newProvedor.nombre" class="normal" type="text" inputmode="text" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Correo:
+      </ion-label>
+      <ion-input [(ngModel)]="newProvedor.correo" class="normal" type="email" inputmode="text" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Telefono
+      </ion-label>
+      <ion-input [(ngModel)]="newProvedor.telefono" class="normal" type="tel"  ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-select interface="popover" [(ngModel)]="newProvedor.idCategoria" mode="ios" placeholder="Categoria">
+            <ion-select-option  value="1">Refrescos</ion-select-option>
+            <ion-select-option  value="2">Lacteos</ion-select-option>
+            <ion-select-option  value="3">churros</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Descripción:
+      </ion-label>
+      <ion-input [(ngModel)]="newProvedor.descripcion" class="normal" type="text" inputmode="text" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Facebook:
+      </ion-label>
+      <ion-input [(ngModel)]="newProvedor.facebook" class="normal" type="text" inputmode="text" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Ubicación:
+      </ion-label>
+      <ion-input [(ngModel)]="newProvedor.ubicacion" class="normal" type="text" inputmode="text" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" >
+        Foto:
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <label for="file-upload">
+            <ion-icon slot="icon-only" name="images"></ion-icon>
+          </label>
+          <input (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file" accept="image/*">
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item>
+      <ion-img class="imagen" [src]="newProvedor.foto"></ion-img>
+    </ion-item>
+
+    <ion-button class="Guardar" expand="full" color="dark" (click)="guardarProvedor()">
+      Guardar
+    </ion-button>
+  </div>
+
+ <ion-card *ngIf="!enableNewProducto" >
+  <h3 class="subtitulo encabezado">Lista de proveedores:</h3>
+  <ion-item  *ngFor="let provedor of provedores">
+    <ion-label>{{provedor.nombre}}</ion-label>
+  
+    <ion-buttons slot="end">
+      <ion-button (click)="newProvedor = provedor; enableNewProducto = true;"> 
+        <ion-icon slot="icon-only" name="create-sharp" color="primary"></ion-icon>
+      </ion-button>
+      <ion-button (click)="deleteProvedor(provedor)">
+        <ion-icon slot="icon-only" name="trash-bin" color="danger"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+ </ion-card>

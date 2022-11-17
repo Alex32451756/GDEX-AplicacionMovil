@@ -1,0 +1,7 @@
+{
+  "name": "appBarri",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
