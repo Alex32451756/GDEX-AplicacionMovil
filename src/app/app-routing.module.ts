@@ -1,3 +1,4 @@
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProvedoresComponent } from './pages/provedores/provedores.component';
 import { PedidosComponent } from './pages/pedidos/pedidos.component';
 import { MispedidosComponent } from './pages/mispedidos/mispedidos.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'set-productos', component: SetProductosComponent, ...canActivate(isAdmin)},
   { path: 'pedidos', component: PedidosComponent, ...canActivate(isAdmin)},
   { path: 'provedores', component: ProvedoresComponent, ...canActivate(isAdmin)},
+  { path: 'dashboard', component: DashboardComponent, ...canActivate(isAdmin)},
   { path: 'perfil', component: PerfilComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'mis-pedidos', component: MispedidosComponent },

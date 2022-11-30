@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="subtitulo">
+      Dashboard
+    </ion-title>
+    <ion-buttons slot="start" >
+      <ion-button (click)="openMenu()">
+        <ion-icon color=primary slot="icon-only" name="menu-sharp"></ion-icon> 
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" >
+      <ion-button  [routerLink]="['/']">
+        <ion-icon color=primary slot="icon-only" name="storefront-sharp"></ion-icon> 
+      </ion-button>
+      <ion-button  [routerLink]="['/perfil']">
+        <ion-icon color=primary slot="icon-only" name="person-circle"></ion-icon> 
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item  button=true detail=true (click)="openModal()" >
+    <ion-label class="normal">
+      los 5 mas vendidos
+      <p class="normal">Muestra una grafica con los 5 productos mas vendidos</p>
+    </ion-label>
+    <ion-icon slot="start" name="pizza-sharp"></ion-icon>
+ </ion-item>
+</ion-content>

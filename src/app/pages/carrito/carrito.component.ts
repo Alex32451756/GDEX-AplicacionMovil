@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FirebaseauthService } from './../../services/firebaseauth.service';
 import { Subscription } from 'rxjs';
 import { CarritoService } from './../../services/carrito.service';
@@ -25,12 +26,22 @@ export class CarritoComponent implements OnInit, OnDestroy {
                 public carritoService: CarritoService,
                 public firebaseauthService: FirebaseauthService,
                 public toastController: ToastController,
+                public router: Router,
                 public loadingController: LoadingController ) {
                   this.initCarrito();
                   this.loadPedido();
       }
 
-  ngOnInit() {}
+  async ngOnInit() {
+    const uid = await this.firebaseauthService.getUid();
+    if(uid === null)
+    {
+      this.router.navigate(['/perfil']);
+      return;
+    }
+
+    console.log(uid);
+  }
 
   ngOnDestroy(){
     if (this.carritoSuscriber){
@@ -43,13 +54,11 @@ export class CarritoComponent implements OnInit, OnDestroy {
   this.menucontroller.toggle('principal');
   }
 
-  loadPedido(){
-    this.presentLoading();
+  async loadPedido(){
     this.carritoSuscriber = this.carritoService.getCarrito().subscribe(res => {
-      if(res.productos.length){
-        this.loading.dismiss();
+      console.log(res.productos.length);
+      if(!res.productos.length){
       };
-      this.loading.dismiss();
       this.pedidos = res;
       this.getCatidad();
       this.getTotal();
@@ -123,5 +132,8 @@ export class CarritoComponent implements OnInit, OnDestroy {
    // await loading.onDidDismiss();
     //console.log('Loading dismissed!');
   }
+  async showError() {
+    await this.loading.dismiss();
+    }
 
 }

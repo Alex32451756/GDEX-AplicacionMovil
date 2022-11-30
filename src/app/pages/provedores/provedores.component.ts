@@ -134,7 +134,7 @@ export class ProvedoresComponent implements OnInit {
     await toast.present();
   }
 
-  async newImageUpload(event: any){
+  async newImageUploat(event: any){
     if(event.target.files && event.target.files[0]){
       this.newFile = event.target.files[0];
       const reader = new FileReader();

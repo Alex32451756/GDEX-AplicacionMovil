@@ -19,7 +19,7 @@ export class SetProductosComponent implements OnInit {
   enableNewProducto = false;
   loading: any;
   newImage = '';
-  newFile = '';
+  newFile: any;
   private path = 'Productos/';
 
   constructor(public menucontroler: MenuController,
@@ -41,10 +41,10 @@ export class SetProductosComponent implements OnInit {
     this.presentLoading();
     const path = 'Productos';
     const name = this.newProducto.nombre;
-    const res = await this.firestorageService.uploadImage(this.newFile, path, name);
-    this.newProducto.foto = res;
-
-
+    if(this.newFile !== undefined){
+      const res = await this.firestorageService.uploadImage(this.newFile, path, name);
+      this.newProducto.foto = res;
+    }
     console.log('entro');
     this.firestoreService.creatDoc(this.newProducto, this.path, this.newProducto.id)
           .then(resp =>{
@@ -130,7 +130,7 @@ export class SetProductosComponent implements OnInit {
     await toast.present();
   }
 
-  async newImageUpload(event: any){
+  async newImageUploa(event: any){
     if(event.target.files && event.target.files[0]){
       this.newFile = event.target.files[0];
       const reader = new FileReader();

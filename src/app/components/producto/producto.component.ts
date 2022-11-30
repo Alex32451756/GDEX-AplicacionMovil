@@ -1,3 +1,4 @@
+import { FirebaseauthService } from './../../services/firebaseauth.service';
 import { ComentariosComponent } from './../../pages/comentarios/comentarios.component';
 import { CarritoService } from './../../services/carrito.service';
 import { Producto } from './../../models';
@@ -18,13 +19,16 @@ export class ProductoComponent implements OnInit {
                 public loadingController: LoadingController,
                 public toastController: ToastController,
                 public alertController: AlertController,
-               public modalController: ModalController) { }
+                public firebaseauthService: FirebaseauthService,
+                public modalController: ModalController) { }
 
   ngOnInit() {
 
   }
 
-  addCarrito(){
+  async addCarrito(){
+    const uid = await this.firebaseauthService.getUid();
+    console.log(uid);
     this.carritoService.addProducto(this.producto);
   }
 

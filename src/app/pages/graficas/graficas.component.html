@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="subtitulo">
+      Grafica
+    </ion-title>
+    <ion-buttons slot="start" >
+      <ion-button (click)="closeModal()">
+        <ion-icon color=primary slot="icon-only" name="arrow-back-outline"></ion-icon> 
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div>
+    <ion-buttons slot="end" >
+      <ion-button (click)="showChart()">
+        <ion-icon  slot="icon-only" name="pie-chart-sharp"></ion-icon> 
+      </ion-button>
+      <ion-button  (click)="drawChart()">
+        <ion-icon  slot="icon-only" name="pulse-sharp"></ion-icon> 
+      </ion-button>
+      <ion-button  (click)="drawChartColum()">
+        <ion-icon  slot="icon-only" name="stats-chart-sharp"></ion-icon> 
+      </ion-button>
+    </ion-buttons>
+  </div>
+  <div id="chart_div" style="background-color: black !important;"></div>
+</ion-content>

@@ -36,7 +36,6 @@ private pedido: Pedido;
   }
 
   loadCarrito(){
-    this.presentLoading('cargando...');
     const path = 'Clientes/' + this.uid + '/' + this.path;
     if(this.carritoSuscriber){
       this.carritoSuscriber.unsubscribe();
@@ -45,9 +44,9 @@ private pedido: Pedido;
       if(res){
         this.pedido = res as Pedido;
         this.pedido$.next(this.pedido);
-        this.loading.dismiss();
+
       }else{
-        this.loading.dismiss();
+
         this.initCarrito();
       }
     });
@@ -120,7 +119,6 @@ private pedido: Pedido;
         if (item.cantidad === 0){
           this.pedido.productos.splice(position, 1);
         }
-        console.log('en remove pedido -> ', this.pedido);
         const path = 'Clientes/' + this.uid + '/' + this.path;
         this.firestoreService.creatDoc(this.pedido, path, this.pedido.uid).then( res => {
           this.presentToast('Producto Removido', 'warning');
@@ -151,6 +149,8 @@ private pedido: Pedido;
   // await this.loading.onDidDismiss();
     //console.log('Loading dismissed!');
   }
+
+
 
   async presentToast(msg: string, colorp: string) {
     const toast = await this.toastController.create({

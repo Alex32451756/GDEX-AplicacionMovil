@@ -2,7 +2,7 @@ import { FirebaseauthService } from './../../services/firebaseauth.service';
 import { Subscription } from 'rxjs';
 import { FirestoreService } from './../../services/firestore.service';
 import { ModalController, ToastController, LoadingController } from '@ionic/angular';
-import { Producto, Cliente } from './../../models';
+import { Producto} from './../../models';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 
 @Component({

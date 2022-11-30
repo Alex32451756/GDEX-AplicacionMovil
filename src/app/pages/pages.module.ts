@@ -1,3 +1,5 @@
+import { GraficasComponent } from './graficas/graficas.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProvedoresComponent } from './provedores/provedores.component';
 import { ComentariosComponent } from './comentarios/comentarios.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
@@ -22,7 +24,9 @@ import { HomeComponent } from './home/home.component';
     MispedidosComponent,
     PedidosComponent,
     ComentariosComponent,
-    ProvedoresComponent
+    ProvedoresComponent,
+    DashboardComponent,
+    GraficasComponent
   ],
   imports: [
     CommonModule,

@@ -29,9 +29,7 @@ export class HomeComponent implements OnInit {
   }
 
   loadProductos(){
-    this.presentLoading();
     this.firestoreService.getCollection<Producto>(this.path).subscribe(res => {
-      this.loading.dismiss();
       this.productos =  res;
     });
   }

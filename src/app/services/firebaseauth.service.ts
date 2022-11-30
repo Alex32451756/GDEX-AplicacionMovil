@@ -1,3 +1,4 @@
+import { LoadingController } from '@ionic/angular';
 import { Cliente } from './../models';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FirestoreService } from './firestore.service';
@@ -22,7 +23,8 @@ export class FirebaseauthService {
   };
 
   constructor(public auth: AngularFireAuth,
-              public firestoreService: FirestoreService) {
+              public firestoreService: FirestoreService,
+              public loadingController: LoadingController) {
     this.stateUser();
    }
 
