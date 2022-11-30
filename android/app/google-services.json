@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "933053802264",
+    "project_id": "dgex-6727",
+    "storage_bucket": "dgex-6727.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933053802264:android:aea714803de0a5e4f5206d",
+        "android_client_info": {
+          "package_name": "com.utng.gdex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "933053802264-8b7sq0sr8kv3nn41v9l764ekv00139je.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARVyM136bBlaJuINzPpDHRWx83UmNVmXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "933053802264-8b7sq0sr8kv3nn41v9l764ekv00139je.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">GDEX</string>
+    <string name="title_activity_main">GDEX</string>
+    <string name="package_name">com.utng.gdex</string>
+    <string name="custom_url_scheme">com.utng.gdex</string>
+</resources>

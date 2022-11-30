@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'appBarri',
+  appId: 'com.utng.gdex',
+  appName: 'GDEX',
   webDir: 'www',
   bundledWebRuntime: false
 };
